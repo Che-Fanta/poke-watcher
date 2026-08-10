@@ -1,0 +1,43 @@
+name: poke-watcher
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # alli 30 Min (siehe Hinweis zu Gratis-Minute unte)
+  workflow_dispatch: {}       # erlaubt manuelle Test-Läuf per Knopf
+
+permissions:
+  contents: write             # nötig zum state.json zrugg-committe
+
+concurrency:
+  group: poke-watcher
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install requests beautifulsoup4
+
+      - name: Run watcher
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python poke_watcher.py --once
+
+      - name: Persist state
+        run: |
+          if [ -n "$(git status --porcelain state.json)" ]; then
+            git config user.name "poke-watcher-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add state.json
+            git commit -m "update state [skip ci]"
+            git push
+          else
+            echo "kei Ändrig am state"
+          fi

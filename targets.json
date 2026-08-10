@@ -1,0 +1,18 @@
+[
+  {
+    "name": "World of Games – 30th ETB",
+    "url": "https://www.worldofgames.ch/de/DEIN-PRODUKT-LINK",
+    "max_price": 60,
+    "price_selector": null,
+    "stock_rule": { "type": "text_absent", "value": "ausverkauft" },
+    "alert_over_price": false
+  },
+  {
+    "name": "Galaxus – 30th Booster Box",
+    "url": "https://www.galaxus.ch/de/s1/product/DEIN-PRODUKT-LINK",
+    "max_price": 180,
+    "price_selector": null,
+    "stock_rule": { "type": "text_present", "value": "in den warenkorb" },
+    "alert_over_price": false
+  }
+]
