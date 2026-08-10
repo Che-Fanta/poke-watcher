@@ -1,0 +1,22 @@
+name: test-discord
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test message to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "FEHLER: Secret DISCORD_WEBHOOK_URL isch nöd gsetzt."
+            exit 1
+          fi
+          curl -sS -X POST -H "Content-Type: application/json" \
+            -d '{"content":"✅ Test vom poke-watcher — Discord funktioniert!"}' \
+            "$DISCORD_WEBHOOK_URL"
+          echo ""
+          echo "Test gschickt. Lueg i dim Discord-Kanal."
