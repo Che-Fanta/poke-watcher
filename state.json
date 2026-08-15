@@ -22,6 +22,7 @@
   "laschocards.ch": [
     "pokemon-tcg-25th-anniversary-collection-booster-pack-s8a",
     "pokemon-tcg-30th-celebration-booster-box-jpn-m6a",
+    "pokemon-tcg-30th-celebration-booster-pack",
     "pokemon-tcg-30th-celebration-booster-pack-jpn-m6a",
     "pokemon-tcg-espeon-ex-and-umbreon-ex-30th-celebration-premium-deck-set"
   ],
@@ -42,7 +43,9 @@
   ],
   "swiss-pokeshop.ch": [],
   "pokemonkarten.ch": [],
-  "tcg-schweiz.ch": [],
+  "tcg-schweiz.ch": [
+    "https://tcg-schweiz.ch/product/yu-gi-oh-25th-anniversary-tin-dueling-mirrors/"
+  ],
   "pokeuri.ch": [
     "one-piece-1st-anniversary-set-en",
     "weiss-schwarz-is-the-order-a-rabbit-10th-anniversary-premium-booster-box-jp",
@@ -70,8 +73,7 @@
   "pokereaves.ch": [
     "pre-order-1x-pokemon-2-pack-blister-30th-anniversary-english",
     "pre-order-1x-pokemon-mini-tin-display-30th-anniversary-english",
-    "pre-order-pokemon-30th-anniversary-booster-bundle-english",
-    "pre-order-pokemon-tech-sticker-collection-30th-anniversary-english-copia"
+    "pre-order-pokemon-30th-anniversary-booster-bundle-english"
   ],
   "geek-online.ch": [],
   "spielefuchs.ch": [
