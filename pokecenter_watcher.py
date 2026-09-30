@@ -70,6 +70,19 @@ BLOCK_TERMS = [
 ]
 
 
+def region_home(url):
+    """
+    Startseite der Region (US, /en-gb, /en-ca).
+
+    In die Warteschlange soll man nur über die Startseite,
+    nie über einen Produkt- oder Suchlink.
+    """
+
+    match = re.search(r"pokemoncenter\.com(/[a-z]{2}-[a-z]{2})", url)
+
+    return BASE + (match.group(1) if match else "/")
+
+
 # ---------------------------------------------------------------------------
 # Seite abrufen und einordnen
 # ---------------------------------------------------------------------------
@@ -228,8 +241,10 @@ def check_pages(cfg, state, webhook):
                 (
                     f"🚦 **POKÉMON CENTER – WARTESCHLANGE AKTIV**\n\n"
                     f"**Seite:** {name}\n"
-                    f"Der Drop läuft wahrscheinlich gerade! "
-                    f"Jetzt selber rein:\n{url}"
+                    f"Der Drop läuft wahrscheinlich gerade!\n"
+                    f"Nur über die Startseite rein "
+                    f"(nie über einen Produktlink):\n"
+                    f"{region_home(url)}"
                 )
             )
 
