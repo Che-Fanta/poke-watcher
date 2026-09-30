@@ -1,0 +1,11 @@
+{
+  "https://www.pokemoncenter.com/search/elite-trainer-box": {
+    "items": null,
+    "status": "blocked"
+  },
+  "https://www.pokemoncenter.com/category/trading-card-game": {
+    "items": null,
+    "status": "blocked"
+  },
+  "_alerted": []
+}
