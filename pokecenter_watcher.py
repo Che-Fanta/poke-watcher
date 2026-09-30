@@ -62,12 +62,15 @@ QUEUE_TERMS = [
     "experiencing high traffic",
 ]
 
+# Texte einer Imperva-Sperrseite. Achtung: "_Incapsula_Resource" steckt
+# auch in normalen Seiten und zählt nur bei sehr kurzen Antworten.
 BLOCK_TERMS = [
-    "_incapsula_resource",
     "incapsula incident",
     "request unsuccessful",
-    "access denied",
 ]
+
+# Kürzer als das ist eher eine Sperr-/Challenge-Seite als ein Shop
+CHALLENGE_MAX_BYTES = 15000
 
 
 def region_home(url):
@@ -111,6 +114,11 @@ def fetch_page(url):
     html = response.text or ""
     low = html.lower()
 
+    print(
+        f"[http] {url}: HTTP {response.status_code}, "
+        f"{len(html)} Zeichen"
+    )
+
     # Warteschlange zuerst prüfen: Die Queue-Seite kann auch
     # Imperva-Skripte enthalten.
     if any(term in low for term in QUEUE_TERMS):
@@ -119,7 +127,13 @@ def fetch_page(url):
     if (
         response.status_code in (401, 403, 429)
         or any(term in low for term in BLOCK_TERMS)
+        or (
+            len(html) < CHALLENGE_MAX_BYTES
+            and "_incapsula_resource" in low
+        )
     ):
+        print(f"[blocked] {url}: {html[:300]!r}")
+
         return "blocked", html
 
     if response.status_code != 200:
