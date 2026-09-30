@@ -58,5 +58,35 @@
       "name": "Ex Libris",
       "url": "https://www.exlibris.ch"
     }
-  ]
+  ],
+  "pokemon_center": {
+    "enabled": true,
+    "keywords": [
+      "elite trainer box",
+      "top-trainer-box",
+      "top trainer box"
+    ],
+    "exclude": [
+      "sleeve",
+      "sleeves",
+      "card sleeves",
+      "playmat",
+      "deck box",
+      "plush"
+    ],
+    "pages": [
+      {
+        "name": "Pokémon Center US – Suche ETB",
+        "url": "https://www.pokemoncenter.com/search/elite-trainer-box"
+      },
+      {
+        "name": "Pokémon Center US – TCG",
+        "url": "https://www.pokemoncenter.com/category/trading-card-game"
+      },
+      {
+        "name": "Pokémon Center UK – Suche ETB",
+        "url": "https://www.pokemoncenter.com/en-gb/search/elite-trainer-box"
+      }
+    ]
+  }
 }
