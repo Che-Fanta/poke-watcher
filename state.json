@@ -131,6 +131,8 @@
   "jeeg.ch": [],
   "spiilegge.ch": [],
   "pokelight.ch": [],
-  "smythstoys.com": [],
+  "smythstoys.com": [
+    "https://www.smythstoys.com/ch/de-ch/katalogbestellung"
+  ],
   "exlibris.ch": []
 }
